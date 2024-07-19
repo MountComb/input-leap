@@ -47,6 +47,11 @@ BuildRequires: libqt5-qtbase-devel
 BuildRequires: libqt5-linguist libqt5-linguist-devel
 BuildRequires: make
 
+BuildRequires: libei-devel
+BuildRequires: libxkbcommon-devel
+BuildRequires: glib2-devel
+BuildRequires: libportal-devel
+
 Requires: libc libstdc++ libgcc_s1
 Requires: libdns_sd
 Requires: libQt5Core5 libQt5Gui5 libQt5Network5 libQt5Widgets5
@@ -67,7 +72,8 @@ Work seamlessly across Windows, macOS and Linux.
 %build
 %{cmake3} . \
     -DINPUTLEAP_VERSION_STAGE:STRING=@INPUTLEAP_VERSION_STAGE@ \
-    -DINPUTLEAP_REVISION:STRING=%{input_leap_revision}
+    -DINPUTLEAP_REVISION:STRING=%{input_leap_revision} \
+    -DINPUTLEAP_BUILD_LIBEI=TRUE
 %{cmake_build}
 
 
